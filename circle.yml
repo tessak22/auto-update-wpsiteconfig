@@ -33,6 +33,6 @@ dependencies:
 test:
   override:
     - >
-      if [ -n "${CRON_BUILD}" ]; then
+      if [ -z "${CRON_BUILD}" ]; then
         ./bin/auto-update;
       fi
