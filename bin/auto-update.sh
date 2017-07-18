@@ -13,12 +13,12 @@ echo -e "\nLogging into Terminus..."
 terminus auth:login --machine-token=${TERMINUS_MACHINE_TOKEN}
 
 # delete the multidev environment
-echo -e "\nDeleting the ${MULTIDEV} multidev environment..."
-terminus multidev:delete $SITE_UUID.$MULTIDEV --delete-branch --yes
+#echo -e "\nDeleting the ${MULTIDEV} multidev environment..."
+#terminus multidev:delete $SITE_UUID.$MULTIDEV --delete-branch --yes
 
 # recreate the multidev environment
-echo -e "\nRe-creating the ${MULTIDEV} multidev environment..."
-terminus multidev:create $SITE_UUID.live $MULTIDEV
+#echo -e "\nRe-creating the ${MULTIDEV} multidev environment..."
+#terminus multidev:create $SITE_UUID.live $MULTIDEV
 
 # check for upstream updates
 echo -e "\nChecking for upstream updates on the ${MULTIDEV} multidev..."
