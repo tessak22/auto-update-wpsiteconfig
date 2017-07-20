@@ -68,9 +68,9 @@ then
 else
     # update WordPress plugins
     echo -e "\nUpdating WordPress plugins on the ${MULTIDEV} multidev..."
-    php -f bin/slack_notify.php terminus_plugin_updates
     PLUGINS_TO_UPDATE=$(terminus -n wp $SITE_UUID.$MULTIDEV -- plugin list --update=available --field=name | tr '\n' ',\ ' | rev | cut -c2- | rev)
     php -f bin/slack_notify.php wordpress_plugin_updates "${PLUGINS_TO_UPDATE}"
+    php -f bin/slack_notify.php terminus_plugin_updates
     terminus -n wp $SITE_UUID.$MULTIDEV -- plugin update --all
 
     # wake the site environment before committing code
@@ -96,9 +96,9 @@ then
 else
     # update WordPress themes
     echo -e "\nUpdating WordPress themes on the ${MULTIDEV} multidev..."
-    php -f bin/slack_notify.php terminus_theme_updates
     THEMES_TO_UPDATE=$(terminus -n wp $SITE_UUID.$MULTIDEV -- theme list --update=available --field=name | tr '\n' ',\ ' | rev | cut -c2- | rev)
     php -f bin/slack_notify.php wordpress_theme_updates "${THEMES_TO_UPDATE}"
+    php -f bin/slack_notify.php terminus_theme_updates
     terminus -n wp $SITE_UUID.$MULTIDEV -- theme update --all
 
     # wake the site environment before committing code
