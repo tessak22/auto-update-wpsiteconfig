@@ -71,7 +71,7 @@ switch($slack_type) {
     $slack_agent = 'BackstopJS Visual Regression';
     $slack_icon = 'https://live-wp-microsite.pantheonsite.io/sites/wp-content/uploads/demo-assets/icons/backstop.png';
     $slack_color = '#800080';
-    $slack_message = 'Visual regression tests failed! Please review the <https://dashboard.pantheon.io/sites/${SITE_UUID}#${TERMINUS_ENV}/code|the ${TERMINUS_ENV} environment>! ' . $diff_url;
+    $slack_message = 'Visual regression tests failed! Please review the <https://dashboard.pantheon.io/sites/02854fa0-b6e4-4349-932a-8aa7d9cab884#update-wp/code|the update-up environment>! ' . $diff_url;
     _slack_tell( $slack_message, $slack_channel, $slack_agent, $slack_icon, $slack_color);
     break;
   case 'visual':

@@ -39,7 +39,7 @@ else
 
     # apply WordPress upstream updates
     echo -e "\nApplying upstream updates on the ${MULTIDEV} multidev..."
-    CORE_UPDATES=$(terminus upstream:updates:list ${SITE_UUID}.${TERMINUS_ENV} --field=message | tr '\n' '')
+    CORE_UPDATES=$(terminus upstream:updates:list ${SITE_UUID}.${MULTIDEV} --field=message | tr '\n' '')
     php -f bin/slack_notify.php wordpress_core_updates "${CORE_UPDATES}"
     php -f bin/slack_notify.php terminus_core_updates
     terminus upstream:updates:apply $SITE_UUID.$MULTIDEV --yes --updatedb --accept-upstream
